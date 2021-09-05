@@ -9,7 +9,9 @@ if ENV not in ('DEV', 'STAGING', 'PROD'):
     )
 
 config = configparser.ConfigParser()
-config.read(f"./configs/{ENV.lower()}.ini")
+file = config.read(f"./configs/{ENV.lower()}.ini")
+if not file:
+    raise RuntimeError('Unable to read config file.')
 
 db_config = config['Database']
 POSTGRES_USER = db_config.get('postgres_user')

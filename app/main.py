@@ -1,8 +1,13 @@
-import fastapi
+import uvicorn
+from fastapi import FastAPI, Depends
 
-from app import dependencies
-from app.routers import users
+from app.dependencies import get_session
+from app.routers import queues
 
-app = fastapi.FastAPI(dependencies=[fastapi.Depends(dependencies.get_session)])
+app = FastAPI(dependencies=[Depends(get_session)])
 
-app.include_router(users.router)
+app.include_router(queues.router)
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="localhost", port=8000)

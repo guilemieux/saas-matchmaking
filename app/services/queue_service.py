@@ -6,7 +6,9 @@ from app import schemas, models
 
 
 async def create_queue(session: Session, queue: schemas.QueueCreate) -> models.Queue:
-    db_queue = models.Queue(name=queue.name)
+    db_queue = models.Queue(name=queue.name,
+                            match_cost_function=queue.match_cost_function,
+                            max_match_cost=queue.max_match_cost)
     session.add(db_queue)
     session.commit()
     session.refresh(db_queue)

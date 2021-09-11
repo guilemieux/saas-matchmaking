@@ -1,6 +1,7 @@
+"""Parser for Match Cost Functions."""
 import lark
 
-match_cost_function_parser = lark.Lark(r"""
+mcf_parser = lark.Lark(r"""
     ?aggregate_expr: aggregate_term
                    | aggregate_expr "+" aggregate_term -> add
                    | aggregate_expr "-" aggregate_term -> subtract
@@ -90,7 +91,7 @@ class MatchCostFunctionTransformer(lark.Transformer):
 
 
 if __name__ == "__main__":
-    parse_tree = match_cost_function_parser.parse('')
+    parse_tree = mcf_parser.parse('diff(ratings')
     t = MatchCostFunctionTransformer(attributes={
         'rating': [900, 1050],
         'wait_time': [10, 60],

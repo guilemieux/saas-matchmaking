@@ -9,7 +9,7 @@ if ENV not in ('DEV', 'STAGING', 'PROD'):
     )
 
 config = configparser.ConfigParser()
-file = config.read(f"./app/configs/{ENV.lower()}.ini")
+file = config.read(f"./configs/{ENV.lower()}.ini")
 if not file:
     raise RuntimeError('Unable to read config file.')
 

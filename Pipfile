@@ -8,6 +8,9 @@ fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 alembic = "*"
 psycopg2 = "*"
+lark = "*"
+pydantic = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 

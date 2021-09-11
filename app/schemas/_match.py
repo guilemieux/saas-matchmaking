@@ -5,4 +5,7 @@ from pydantic import BaseModel, PositiveInt
 
 class Match(BaseModel):
     id: PositiveInt
-    time: datetime
+    creation_time: datetime
+
+    class Config:
+        orm_mode = True

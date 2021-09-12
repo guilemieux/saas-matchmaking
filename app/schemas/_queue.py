@@ -1,7 +1,7 @@
 from typing import Optional
 
 from lark.exceptions import LarkError
-from pydantic import BaseModel, constr, PositiveInt, confloat, ValidationError, validator
+from pydantic import BaseModel, constr, PositiveInt, confloat, validator
 
 from app.services.mcf_parser import mcf_parser
 

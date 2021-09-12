@@ -8,4 +8,3 @@ class Match(Base):
 
     id = sa.Column('id', sa.Integer, primary_key=True)
     creation_time = sa.Column('time', sa.DateTime)
-

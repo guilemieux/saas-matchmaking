@@ -12,6 +12,7 @@ lark = "*"
 pydantic = "*"
 sqlalchemy = "*"
 asyncpg = "*"
+networkx = "*"
 
 [dev-packages]
 
